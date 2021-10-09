@@ -4,6 +4,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -17,5 +18,10 @@
     "url": "https://github.com/sibir-9k/week4-ITMO-opendu/issues"
   },
   "homepage": "https://github.com/sibir-9k/week4-ITMO-opendu#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1",
+    "got": "^11.8.2",
+    "tape": "^5.3.1"
+  }
 }
