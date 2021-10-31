@@ -3,7 +3,8 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const PORT = process.env.PORT || 5000
 const app = express()
-app.use(bodyParser.json().text())
+app.use(bodyParser.text())
+app.use(bodyParser.json())
 app.use(cors())
 app.post('/result4/', (req, res) => {
     const xTest = req?.headers?.['x-test']
