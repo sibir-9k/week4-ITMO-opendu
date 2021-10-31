@@ -21,7 +21,7 @@ app.use(function (req, res, next) {
 
 
 router.all('/result4/', (req, res) => res.json({
-    message: 'random_nick__',
+    message: ' id71293382',
     'x-result': req.headers['x-test'],
     'x-body': JSON.parse(JSON.stringify(req.body))
 }))
