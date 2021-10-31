@@ -1,7 +1,6 @@
 const http = require('http');
 
-http
-  .Server((req, res) => {
+http.Server((req, res) => {
 
     if (req.url === '/result4/') {
       let CORS = {
