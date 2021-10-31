@@ -1,19 +1,29 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const PORT = process.env.PORT || 5000
-const app = express()
-app.use(bodyParser.text())
-app.use(bodyParser.json())
-app.use(cors())
-app.post('/result4/', (req, res) => {
-    const xTest = req?.headers?.['x-test']
-    const xBody = req?.body
-    res.json({ message: 'id71293382', "x-result": xTest, "x-body": xBody })
-})
-app.get('/result4/', (req, res) => {
-    const xTest = req?.headers?.['x-test']
-    const xBody = 'abc'
-    res.json({ message: 'id71293382', "x-result": xTest, "x-body": xBody })
-})
-app.listen(PORT, () => console.log(`App is listening on ${PORT}`))
+const http = require('http');
+
+http
+  .Server((req, res) => {
+
+    if (req.url === '/result4/') {
+      let CORS = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+        'Access-Control-Allow-Headers':
+          'x-test,Content-Type,Accept,Access-Control-Allow-Headers',
+      };
+
+      const result = {
+        message: 'gossoudarev',
+        'x-result': req.headers['x-test'],
+      };
+      let body = '';
+
+      req
+        .on('data', data => (body += data))
+        .on('end', () => {
+          result['x-body'] = body;
+          res.writeHead(200, {... CORS, 'Content-Type': 'application/json' });
+          res.end(JSON.stringify(result));
+        });
+    }
+  })
+  .listen(process.env.PORT);
