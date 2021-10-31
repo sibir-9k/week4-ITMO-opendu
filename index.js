@@ -1,30 +1,30 @@
-const express = require('express')
-
-const app = express()
-const port = process.env.PORT || '1337'
-const router = express.Router()
-
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
-app.use(express.text())
-
-app.set('port', port)
-
-app.use(function (req, res, next) {
-    res.set('Access-Control-Allow-Origin', '*')
-    res.set('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
-    res.set('Access-Control-Allow-Headers', 'x-test,Content-Type,Accept,Access-Control-Allow-Headers')
-    res.set('Charset', 'UTF-8')
-    res.set('Content-Type', 'application/json')
-    next()
-})
-
-
-router.all('/result4/', (req, res) => res.json({
-    message: ' id71293382',
-    'x-result': req.headers['x-test'],
-    'x-body': JSON.parse(JSON.stringify(req.body))
-}))
-
-app.use(router)
-app.listen(port)
+import http from 'http';
+const CORS = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET,POST,DELETE,OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, x-test'
+  };
+const server = http.createServer(async(req,res)=>{
+      if(req.url === '/result4/'){
+          
+          res.writeHead(200,{
+              'Content-Type':'application/json',
+              ...CORS,
+          })
+          let data = '';
+          await req.on('data', function(chunk){
+            data += chunk;
+            }).on('end', () => {
+          })
+          res.write(JSON.stringify({
+            "message":" id71293382",
+            "x-result":headers,
+            "x-body":data
+            }
+            ))
+      }
+      res.end()
+      
+  });
+  server.listen(4321,()=>{
+      console.log('Server is running')});

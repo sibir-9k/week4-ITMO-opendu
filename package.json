@@ -1,12 +1,19 @@
 {
-  "name": "week4-ITMO-opendu",
+  "name": "week4-itmo-opendu",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines": {
-    "node": "16.0.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sibir-9k/week4-ITMO-opendu.git"
   },
-  "license": "ISC"
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sibir-9k/week4-ITMO-opendu/issues"
+  },
+  "homepage": "https://github.com/sibir-9k/week4-ITMO-opendu#readme"
 }
