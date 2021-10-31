@@ -1,6 +1,7 @@
 const http = require('http');
 
-http.Server((req, res) => {
+http
+    .Server((req, res) => {
 
     if (req.url === '/result4/') {
       let CORS = {
@@ -16,9 +17,9 @@ http.Server((req, res) => {
       };
       let body = 'abc';
 
-      req
-        .on('data', data => (body += data))
-        .on('end', () => {
+      
+        req.on('data', data => (body += data))
+        req.on('end', () => {
           result['x-body'] = body;
           res.writeHead(200, {... CORS, 'Content-Type': 'application/json' });
           res.end(JSON.stringify(result));
