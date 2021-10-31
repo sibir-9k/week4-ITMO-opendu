@@ -12,10 +12,10 @@ http
       };
 
       const result = {
-        message: 'gossoudarev',
+        message: 'id71293382',
         'x-result': req.headers['x-test'],
       };
-      let body = '';
+      let body = 'abc';
 
       req
         .on('data', data => (body += data))
